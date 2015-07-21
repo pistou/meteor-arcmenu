@@ -17,6 +17,7 @@
             this.children('.arcmenu-menu').css({
                 'position': 'relative',
                 'display': 'none',
+                'margin': 0,
                 'width': opts.width,
                 'height': opts.height
             }).children().css({
@@ -78,8 +79,8 @@
         step: 15,
         onOpen: false,
         onClose: false,
-        itemRotation: 360,
-        iconRotation: 360
+        itemRotation: 0,
+        iconRotation: 0
     };
 
     function openMenu(elem, opts) {
