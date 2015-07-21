@@ -166,7 +166,7 @@
                 var callback = false;
                 if (increment == 0) {
                     callback = function() {
-                        //wrapper.hide();
+                        wrapper.hide();
                         elem.removeClass('arcmenu-animating');
                         elem.removeClass('arcmenu-open');
                         if (typeof opts.onClose == 'function') {
