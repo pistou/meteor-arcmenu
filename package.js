@@ -1,6 +1,6 @@
 Package.describe({
   name: 'pistou:arcmenu',
-  version: '0.0.10',
+  version: '0.1.0',
   summary: 'Create arc menus with whoosh effects!',
   git: 'https://github.com/psko/meteor-arcmenu.git',
   documentation: 'README.md'
