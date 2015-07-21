@@ -34,7 +34,7 @@
                 }
 
                 that.addClass('arcmenu-animating');
-                if (wrapper.is('.arcmenu-open')) {
+                if (that.is('.arcmenu-open')) {
                     closeMenu(that, opts);
                 } else {
                     openMenu(that, opts);
