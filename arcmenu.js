@@ -58,7 +58,6 @@
         }
     };
 
-
     $.fn.arcmenu = function(params) {
         if (methods[params]) {
             return methods[params].apply(this, Array.prototype.slice.call(arguments, 1));
@@ -92,8 +91,8 @@
             target = wrapper.children();
 
         wrapper.show();
-        animateTranslateXYO({
-            'objek': wrapper.prev(),
+        animateTranslate({
+            'objek': elem,
             'targetX': 0,
             'fromX': 0,
             'targetY': 0,
@@ -119,7 +118,7 @@
                     };
                 }
                 setTimeout(function() {
-                    animateTranslateXYO({
+                    animateTranslate({
                         'objek': target.eq(increment),
                         'targetX': Math.round(Math.cos(opts.angleInterval * increment + opts.angleStart) * opts.distance),
                         'fromX': 0,
@@ -128,7 +127,7 @@
                         'targetO': 1,
                         'fromO': 0,
                         'targetRot': 0,
-                        'fromRot': opts.itemRotation,
+                        'fromRot': 0,
                         'easing': opts.show,
                         'step': opts.step,
                         'callback': callback
@@ -148,8 +147,8 @@
         var wrapper = elem.children('.arcmenu-menu'),
             target = wrapper.children();
 
-        animateTranslateXYO({
-            'objek': wrapper.prev(),
+        animateTranslate({
+            'objek': elem,
             'targetX': 0,
             'fromX': 0,
             'targetY': 0,
@@ -167,7 +166,7 @@
                 var callback = false;
                 if (increment == 0) {
                     callback = function() {
-                        wrapper.hide();
+                        //wrapper.hide();
                         elem.removeClass('arcmenu-animating');
                         elem.removeClass('arcmenu-open');
                         if (typeof opts.onClose == 'function') {
@@ -176,7 +175,7 @@
                     };
                 }
                 setTimeout(function() {
-                    animateTranslateXYO({
+                    animateTranslate({
                         'objek': target.eq(increment),
                         'targetX': 0,
                         'fromX': Math.round(Math.cos(opts.angleInterval * increment + opts.angleStart) * opts.distance),
@@ -184,7 +183,7 @@
                         'fromY': Math.round(Math.sin(opts.angleInterval * increment + opts.angleStart) * opts.distance),
                         'targetO': 0,
                         'fromO': 1,
-                        'targetRot': opts.itemRotation,
+                        'targetRot': 0,
                         'fromRot': 0,
                         'easing': opts.hide,
                         'step': opts.step,
@@ -197,13 +196,13 @@
         return elem;
     }
 
-    function animateTranslateXYO(params) {
+    function animateTranslate(params) {
         if (typeof params['objek'] == 'undefined') {
             return false;
         }
 
         var objek = (params['objek'] instanceof jQuery) ? params['objek'] : $([params['objek']]);
-        if (objek.is('.animatingTranslateXYO')) {
+        if (objek.is('.animatingTranslate')) {
             return false;
         }
 
@@ -221,41 +220,41 @@
             xform = 'transform',
             currentStep = 0;
 
-        ['webkit', 'Moz', 'O', 'ms'].every(function(prefix) {
+        ['', 'webkit', 'Moz', 'O', 'ms'].every(function(prefix) {
             var e = prefix + 'Transform';
             if (typeof document.body.style[e] !== 'undefined') {
                 xform = e;
             }
         });
 
-        objek.addClass('animatingTranslateXYO');
-        processAnimateTranslateXYO(objek, targetX, fromX, targetY, fromY, targetO, fromO, targetRot, fromRot, easing, step, callback, xform, currentStep);
+        objek.addClass('animatingTranslate');
+        processanimateTranslate(objek, targetX, fromX, targetY, fromY, targetO, fromO, targetRot, fromRot, easing, step, callback, xform, currentStep);
     }
 
-    function processAnimateTranslateXYO(objek, targetX, fromX, targetY, fromY, targetO, fromO, targetRot, fromRot, easing, step, callback, xform, currentStep) {
-        if (objek.is('.animatingTranslateXYO')) {
-            if (typeof fromX == 'undefined' || fromX == false) {
+    function processanimateTranslate(objek, targetX, fromX, targetY, fromY, targetO, fromO, targetRot, fromRot, easing, step, callback, xform, currentStep) {
+        if (objek.is('.animatingTranslate')) {
+            if (typeof fromX == 'undefined' || fromX === false) {
                 fromX = parseInt(getTranslateX(objek[0]));
             }
-            if (typeof targetX == 'undefined' || targetX == false) {
+            if (typeof targetX == 'undefined' || targetX === false) {
                 targetX = fromX;
             }
-            if (typeof fromY == 'undefined' || fromY == false) {
+            if (typeof fromY == 'undefined' || fromY === false) {
                 fromY = parseInt(getTranslateY(objek[0]));
             }
-            if (typeof targetY == 'undefined' || targetY == false) {
+            if (typeof targetY == 'undefined' || targetY === false) {
                 targetY = fromY;
             }
-            if (typeof fromO == 'undefined' || fromO == false) {
+            if (typeof fromO == 'undefined' || fromO === false) {
                 fromO = parseInt(getOpacity(objek[0]));
             }
-            if (typeof targetO == 'undefined' || targetO == false) {
+            if (typeof targetO == 'undefined' || targetO === false) {
                 targetO = fromO;
             }
-            if (typeof fromRot == 'undefined' || fromRot == false) {
+            if (typeof fromRot == 'undefined' || fromRot === false) {
                 fromRot = 0;
             }
-            if (typeof targetRot == 'undefined' || targetRot == false) {
+            if (typeof targetRot == 'undefined' || targetRot === false) {
                 targetRot = fromRot;
             }
 
@@ -271,7 +270,7 @@
                 opts['opacity'] = currentTargetO;
                 currentStep++;
                 window.requestAnimationFrame(function() {
-                    processAnimateTranslateXYO(objek, targetX, fromX, targetY, fromY, targetO, fromO, targetRot, fromRot, easing, step, callback, xform, currentStep);
+                    processanimateTranslate(objek, targetX, fromX, targetY, fromY, targetO, fromO, targetRot, fromRot, easing, step, callback, xform, currentStep);
                 });
                 objek.css(opts);
             } else {
@@ -279,7 +278,7 @@
                               'rotate(' + targetRot + 'deg)';
                 opts['opacity'] = targetO;
                 objek.css(opts);
-                objek.removeClass('animatingTranslateXYO');
+                objek.removeClass('animatingTranslate');
                 if (typeof callback == 'function') {
                     callback();
                 }
