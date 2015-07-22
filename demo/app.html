@@ -1,0 +1,36 @@
+<head>
+  <title>meteor-arcmenu demo</title>
+</head>
+
+<body>
+
+    <div class="container">
+        <div class="row">
+            <div class="col s12">
+                <h1>meteor-arcmenu demo</h1>
+                This is default config <br>
+                Note that I use <a href="https://atmospherejs.com/materialize/materialize">materialize:materialize</a> in this demo to add rapid styling
+            </div>
+        </div>
+
+        <div class="row">
+            <div class="col s12">
+                {{> demo}}
+            </div>
+        </div>
+    </div>
+
+</body>
+
+<template name="demo">
+
+    <div class="arcmenu">
+        <a href="#" class="btn-floating btn-large waves-effect waves-light arcmenu-display">+</a>
+        <ul class="arcmenu-menu">
+            <li><a href="#" class="btn-floating btn-large waves-effect waves-light red">A</a></li>
+            <li><a href="#" class="btn-floating btn-large waves-effect waves-light green">B</a></li>
+            <li><a href="#" class="btn-floating btn-large waves-effect waves-light blue">C</a></li>
+        </ul>
+    </div>
+
+</template>
