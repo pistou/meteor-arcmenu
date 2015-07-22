@@ -36,15 +36,15 @@ Template.example.onRendered(function () {
 ```
 
 ##### Custom options
-| Option        | Default       | Description                                       |
-| ------------- | ------------- | ------------------------------------------------- |
-| Width         | 55px          | *(String)* Width of the main button               |
-| Height        | 55px          | *(String)* Height of the main button              |
-| angleStart    | -Math.PI/2    | *(Float)* Position of the first item              |
-| angleInterval | Math.PI/5     | *(Float)* Angle to use between each item          |
-| delay         | 50            | *(Int)*                                           |
-| distance      | 100           | *(Int)* Distance between center and items         |
-| show          | easeOutBack   | *(String)* Easing to use on show animation        |
-| hide          | easeInBack    | *(String)* Easing to use on hide animation        |
-| onOpen        | false         | *(function)* Callback function after opening menu |
-| onClose       | false         | *(function)* Callback function after closing menu |
+| Option        | Default       | Description                                           |
+| ------------- | ------------- | ----------------------------------------------------- |
+| Width         | 55px          | *(String)* Width of the main button                   |
+| Height        | 55px          | *(String)* Height of the main button                  |
+| angleStart    | 0             | *(Int)* Angle in degrees to position the firts item   |
+| angleInterval | 45            | *(Int)* Angle in degrees to use between each item     |
+| delay         | 50            | *(Int)*                                               |
+| distance      | 100           | *(Int)* Distance between center and items             |
+| show          | easeOutBack   | *(String)* Easing to use on show animation            |
+| hide          | easeInBack    | *(String)* Easing to use on hide animation            |
+| onOpen        | false         | *(function)* Callback function after opening menu     |
+| onClose       | false         | *(function)* Callback function after closing menu     |

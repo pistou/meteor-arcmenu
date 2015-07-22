@@ -6,6 +6,8 @@
             var opts = $.extend({}, $.fn.arcmenu.defaults, options);
             opts.show = getEasing(opts.show);
             opts.hide = getEasing(opts.hide);
+            opts.angleStart = degToRad(opts.angleStart);
+            opts.angleInterval = degToRad(opts.angleInterval);
 
             this.children('.arcmenu-display').css({
                 'position': 'absolute',
@@ -69,8 +71,8 @@
     $.fn.arcmenu.defaults = {
         width: '55px',
         height: '55px',
-        angleStart: -Math.PI/2,
-        angleInterval: Math.PI/5,
+        angleStart: 0,
+        angleInterval: 45,
         delay: 50,
         distance: 100,
         show: 'easeOutBack',
@@ -284,6 +286,10 @@
                 }
             }
         }
+    }
+
+    function degToRad(angle) {
+        return angle * (Math.PI / 180);
     }
 
     function getTranslateX(elem) {
