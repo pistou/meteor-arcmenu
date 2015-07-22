@@ -1,6 +1,9 @@
 # arcmenu
 Arcmenu is a package for Meteor to create Arc Menus.
 
+## Demo
+You can find a demo at http://arcmenu.meteor.com/
+
 ## Installation
 Add arcmenu to your Meteor project
 
