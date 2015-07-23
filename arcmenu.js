@@ -9,6 +9,12 @@
             opts.angleStart = degToRad(opts.angleStart);
             opts.angleInterval = degToRad(opts.angleInterval);
 
+            this.css({
+                'display': 'inline-block',
+                'width': opts.width,
+                'height': opts.height
+            });
+
             this.children('.arcmenu-display').css({
                 'position': 'absolute',
                 'display': 'block',
