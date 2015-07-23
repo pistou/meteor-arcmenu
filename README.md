@@ -46,3 +46,4 @@ Template.example.onRendered(function () {
 | hide          | easeInBack    | *(String)* Easing to use on hide animation            |
 | onOpen        | false         | *(function)* Callback function after opening menu     |
 | onClose       | false         | *(function)* Callback function after closing menu     |
+| iconRotation  | 225           | *(Int)* Rotation angle to apply on the main button    |

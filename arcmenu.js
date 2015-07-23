@@ -86,8 +86,7 @@
         step: 15,
         onOpen: false,
         onClose: false,
-        itemRotation: 0,
-        iconRotation: 0
+        iconRotation: 225
     };
 
     function openMenu(elem, opts) {
@@ -95,12 +94,13 @@
             return elem;
         }
 
-        var wrapper = elem.children('.arcmenu-menu'),
+        var button = elem.children('.arcmenu-display'),
+            wrapper = elem.children('.arcmenu-menu'),
             target = wrapper.children();
 
         wrapper.show();
         animateTranslate({
-            'objek': elem,
+            'objek': button,
             'targetX': 0,
             'fromX': 0,
             'targetY': 0,
@@ -152,11 +152,12 @@
             return elem;
         }
 
-        var wrapper = elem.children('.arcmenu-menu'),
+        var button = elem.children('.arcmenu-display'),
+            wrapper = elem.children('.arcmenu-menu'),
             target = wrapper.children();
 
         animateTranslate({
-            'objek': elem,
+            'objek': button,
             'targetX': 0,
             'fromX': 0,
             'targetY': 0,
