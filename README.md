@@ -15,9 +15,7 @@ Add menu to your template, like this:
 ```html
 <template name="example">
     <div class="arcmenu">
-        <a href="#" class="btn-floating btn-large waves-effect waves-light arcmenu-display">
-            <i class="material-icons">add</i>
-        </a>
+        <a href="#" class="arcmenu-display">+</a>
         <ul class="arcmenu-menu">
             <li><a href="#">A</a></li>
             <li><a href="#">B</a></li>
