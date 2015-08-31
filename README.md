@@ -7,7 +7,7 @@ You can find a demo at http://arcmenu.meteor.com/
 ## Installation
 Add arcmenu to your Meteor project
 
-`$ meteor add psitou:arcmenu`
+`$ meteor add pistou:arcmenu`
 
 ## How to use
 Add menu to your template, like this:
